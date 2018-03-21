@@ -15,9 +15,15 @@ class ViewController: UIViewController,UITextFieldDelegate {//UITextField의 델
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.delegate = self //델리 게이트 연결
+        textField.clearButtonMode = UITextFieldViewMode.always
+        //전체 삭제 버튼 추가
+        textField.placeholder = "입력하세요"
+        //초기에 띄워주는 글자
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }// 화면을 터치하면 키보드가 내려감
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -36,6 +42,10 @@ class ViewController: UIViewController,UITextFieldDelegate {//UITextField의 델
         textField.text = ""
         textField.resignFirstResponder()
         //버튼을 실행시키면 키보드를 내린다
+        return true
+    }
+    func textFieldShouldClear(_ textField: UITextField) -> Bool{
+        view.backgroundColor = UIColor.blue
         return true
     }
     // called when 'return' key pressed. return NO to ignore.
