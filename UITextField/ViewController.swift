@@ -19,6 +19,11 @@ class ViewController: UIViewController,UITextFieldDelegate {//UITextField의 델
         //전체 삭제 버튼 추가
         textField.placeholder = "입력하세요"
         //초기에 띄워주는 글자
+        textField.textColor = UIColor.red
+        //텍스트의 색상 변경
+        textField.borderStyle = UITextBorderStyle.line
+        //텍스트필드의 테두리 생성
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -46,6 +51,7 @@ class ViewController: UIViewController,UITextFieldDelegate {//UITextField의 델
     }
     func textFieldShouldClear(_ textField: UITextField) -> Bool{
         view.backgroundColor = UIColor.blue
+        //클리어버튼을 삭제했을때 실행
         return true
     }
     // called when 'return' key pressed. return NO to ignore.
