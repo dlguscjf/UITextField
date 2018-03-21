@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITextFieldDelegate {
+class ViewController: UIViewController,UITextFieldDelegate {//UITextField의 델리게이트를 사용하기위해 UITextFieldDelegate사용
 
     @IBOutlet weak var hello: UILabel!
     @IBOutlet weak var textField: UITextField!
@@ -26,7 +26,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBAction func button(_ sender: Any) {
         hello.text = "Hello " + textField.text!
         textField.text = ""
-        textField.resignFirstResponder()
+        textField.resignFirstResponder() //버튼을 실행시키면 키보드를 내린다
     }
     //UItextFieldDelegate method
     
@@ -35,6 +35,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         hello.text = "Hello " + textField.text!
         textField.text = ""
         textField.resignFirstResponder()
+        //버튼을 실행시키면 키보드를 내린다
         return true
     }
     // called when 'return' key pressed. return NO to ignore.
